@@ -1,9 +1,16 @@
 import React from 'react'
+import { SCPodcastCard } from './styled'
 
 
-const PodcastCard = ({image, description, author} : {image: string, description: string, author:string}) => {
+const PodcastCard = ({image, title, author} : {image: string, title: string, author:string}) => {
   return (
-    <div>PodcastCard</div>
+    <SCPodcastCard>
+        <img className='card-img-top' src={image} alt={title} />
+        <div className='card-body'>
+            <h5 className='card-title'>{title}</h5>
+            <p className='card-text'>{`Author: ${author}`}</p>
+            </div>
+    </SCPodcastCard>
   )
 }
 
