@@ -30,22 +30,20 @@ const Home = () => {
   }, [podcasts])
   
   return (
-    <div style={{'margin':'0px 20%'}}>
-      <h1 style={{'fontFamily':'Roboto, sans-serif', 'color': '#3377b3'}}>Podcaster</h1>
-      <hr style={{'opacity':'30%'}}/>
-      <div  style={{ marginBottom:'3rem', display:'flex', alignItems:'center' , justifyContent: 'flex-end' }}>
+    <div>
+       <div  style={{ marginBottom:'3rem', display:'flex', alignItems:'center' , justifyContent: 'flex-end' }}>
         <Chip value={podcasts.length.toString()} />
         <Input value={search} onChange={(e) => setSearch(e.target.value)} />
       </div>
       {loading && <p>Loading...</p>}
        <div style={{'display':'grid', 'gridTemplateColumns': '1fr 1fr 1fr 1fr', 'rowGap':'5rem', 'justifyItems':'center'}}>
 
-       {filteredPodcasts && filteredPodcasts.map(podcast => (
-        <Link to={`/podcast/${podcast.id}`} key={podcast.id} style={{ textDecoration: 'none' }}> 
-          <PodcastCard key={podcast.id} image={podcast.image} title={podcast.title} author={podcast.author} />
-        </Link>
+          {filteredPodcasts && filteredPodcasts.map(podcast => (
+            <Link to={`/podcast/${podcast.id}`} key={podcast.id} style={{ textDecoration: 'none' }}> 
+              <PodcastCard key={podcast.id} image={podcast.image} title={podcast.title} author={podcast.author} />
+            </Link>
 
-      ))}
+          ))}
        </div>
     </div>
   )
